@@ -5,3 +5,6 @@
 gen_data
 data
 run.sh
+.DS_Store
+.vscode
+*.dSYM
