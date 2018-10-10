@@ -60,13 +60,25 @@ struct ValueNode : public Node
     float f;
 };
 
+enum TableKind
+{
+    TableBase,
+    TableJoin,
+    TableSubSelect,
+};
+
 struct TableNode : public Node
 {
     TableNode()
     {
         kind = NodeTable;
+        tableKind=TableBase;
     }
+    TableKind tableKind;
     string name;
+    string alias;
+    Node *join;
+    Node *subSelect;
 };
 
 struct FieldNode : public Node
@@ -76,7 +88,8 @@ struct FieldNode : public Node
         kind = NodeField;
     }
     string name;
-    Node *table;
+    string tableName;
+    Node * table;
 };
 
 struct AttrNode : public Node
@@ -135,8 +148,8 @@ struct JoinNode : public Node
         kind = NodeJoin;
     }
     Node *left;
-   Node *right;
-   Node *cond;
+    Node *right;
+    Node *cond;
 };
 struct SelectNode : public Node
 {
@@ -145,7 +158,7 @@ struct SelectNode : public Node
         kind = NodeSelect;
     }
     Node *fields;
-    Node*cond;
+    Node *cond;
     Node *tables;
     Node *joins;
 };

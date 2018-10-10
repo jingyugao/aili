@@ -33,6 +33,9 @@ Node* n;
     CREATE
     DROP
     SET
+    JOIN
+    ON
+    AS
     DATABASE
     TABLE
     INDEX
@@ -56,7 +59,7 @@ Node* n;
     GT
     GE
 
-%left AND OR 
+%left AND OR JOIN
 %nonassoc NOT 
 
 
@@ -67,8 +70,8 @@ Node* n;
 %type <n>   sql 
             ddl 
             dml
-            create_relation
-            drop_relation
+            create_table
+            drop_table
             create_db
             drop_db
             insert_statment
@@ -87,7 +90,10 @@ Node* n;
             sql_value
             rel_list
             where_clause
-            relation
+            table
+            table2
+            join_table
+            base_table
             column
             
 
@@ -106,8 +112,8 @@ sql:                    ddl
 
 
 
-ddl:                    create_relation   
-                    |   drop_relation
+ddl:                    create_table   
+                    |   drop_table
                     |   create_db
                     |   drop_db
                     ;
@@ -118,10 +124,10 @@ dml:                    insert_statment
                     |   delete_statment
                     ;
 
-create_relation:         CREATE TABLE relation  '(' attr_list ')'   {  }      
+create_table:         CREATE TABLE table  '(' attr_list ')'   {  }      
                     ;
 
-drop_relation:          DROP TABLE  relation        { fprintf(stderr,"drop\n");}
+drop_table:          DROP TABLE  table        { fprintf(stderr,"drop\n");}
                     ;
 
 create_db:              CREATE DATABASE WORD        { fprintf(stderr,"create db\n"); }
@@ -131,8 +137,8 @@ drop_db:              DROP DATABASE WORD  { fprintf(stderr,"drop db\n"); }
                     ;
 
 insert_statment:   
-                        INSERT INTO relation VALUES '(' insert_values ')'   {fprintf(stderr,"insert\n");}
-                    |   INSERT INTO relation '(' column_list ')' VALUES '(' insert_values ')'  {fprintf(stderr,"insert\n");}
+                        INSERT INTO table VALUES '(' insert_values ')'   {fprintf(stderr,"insert\n");}
+                    |   INSERT INTO table '(' column_list ')' VALUES '(' insert_values ')'  {fprintf(stderr,"insert\n");}
                     ;
 insert_values:   
                         sql_value ',' insert_values    {fprintf(stderr,"insert_values\n");}
@@ -145,10 +151,10 @@ select_statment:
                     ;
 
 
-update_statment:        UPDATE  relation SET  set_list where_clause  { }
+update_statment:        UPDATE  table SET  set_list where_clause  { }
                     ;
                    
-delete_statment:        DELETE FROM relation where_clause { }
+delete_statment:        DELETE FROM table where_clause { }
                     ;
 
 where_clause:           WHERE cond_list          {$$= $2;}
@@ -205,12 +211,12 @@ sql_value:
                     |   LITERAL             {fprintf(stderr,"LITERAL\n");ValueNode*n=new ValueNode();n->str=$1;n->valKind=ValStr;$$=n; }
                     ;
 
-rel_list:               relation ',' rel_list   {$$=$3;((ListNode*)$$)->list.push_back($1);}
-                    |   relation              {fprintf(stderr,"rel_list\n"); ListNode *n=new ListNode();n->list.push_back($1);$$=n;}
+rel_list:               table ',' rel_list   {$$=$3;((ListNode*)$$)->list.push_back($1);}
+                    |   table              {fprintf(stderr,"rel_list\n"); ListNode *n=new ListNode();n->list.push_back($1);$$=n;}
                     ;
 
 
-column:                 relation '.' WORD     {fprintf(stderr,"rel.col:%s.%s\n",$1,$3);
+column:                 base_table '.' WORD     {fprintf(stderr,"rel.col:%s.%s\n",$1,$3);
                                            FieldNode *n=new FieldNode();
                                             n->name=$3;n->table=$1;$$=n;}
                     |   WORD               {fprintf(stderr,"column:%s\n",$1);
@@ -218,14 +224,23 @@ column:                 relation '.' WORD     {fprintf(stderr,"rel.col:%s.%s\n",
                                             n->name=$1;$$=n;} 
                     ;   
 
-relation:                  WORD        {
-                                        fprintf(stderr,"relation:%s,\n",$1);
+
+table:   table2 AS  WORD {$$=$1;((TableNode*)$$)->alias=$3;  }
+        ;
+
+table2:               join_table    {TableNode * n=new TableNode();n->join=$1;$$=n;}
+                    | base_table 
+                    ;                    
+
+base_table:              WORD        {
+                                        fprintf(stderr,"table:%s,\n",$1);
                                         TableNode*table=new TableNode();
                                         table->name=$1;
                                         $$=table;
                                         }          
                     ;
-
+join_table:              base_table JOIN base_table ON cond_list {    JoinNode *n=new JoinNode();n->left=$1;n->right=$3;n->cond=$5; $$=n;        }
+                    ;
 
 
 op: 

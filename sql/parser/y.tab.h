@@ -47,31 +47,34 @@
      CREATE = 263,
      DROP = 264,
      SET = 265,
-     DATABASE = 266,
-     TABLE = 267,
-     INDEX = 268,
-     HELP = 269,
-     VALUES = 270,
-     INSERT = 271,
-     DELETE = 272,
-     PRIMARY = 273,
-     T_INT = 274,
-     T_FLOAT = 275,
-     T_VARCHAR = 276,
-     UPDATE = 277,
-     INTO = 278,
-     AND = 279,
-     OR = 280,
-     NOT = 281,
-     EQ = 282,
-     NE = 283,
-     LT = 284,
-     LE = 285,
-     GT = 286,
-     GE = 287,
-     SELECT = 288,
-     FROM = 289,
-     WHERE = 290
+     JOIN = 266,
+     ON = 267,
+     AS = 268,
+     DATABASE = 269,
+     TABLE = 270,
+     INDEX = 271,
+     HELP = 272,
+     VALUES = 273,
+     INSERT = 274,
+     DELETE = 275,
+     PRIMARY = 276,
+     T_INT = 277,
+     T_FLOAT = 278,
+     T_VARCHAR = 279,
+     UPDATE = 280,
+     INTO = 281,
+     AND = 282,
+     OR = 283,
+     NOT = 284,
+     EQ = 285,
+     NE = 286,
+     LT = 287,
+     LE = 288,
+     GT = 289,
+     GE = 290,
+     SELECT = 291,
+     FROM = 292,
+     WHERE = 293
    };
 #endif
 /* Tokens.  */
@@ -83,31 +86,34 @@
 #define CREATE 263
 #define DROP 264
 #define SET 265
-#define DATABASE 266
-#define TABLE 267
-#define INDEX 268
-#define HELP 269
-#define VALUES 270
-#define INSERT 271
-#define DELETE 272
-#define PRIMARY 273
-#define T_INT 274
-#define T_FLOAT 275
-#define T_VARCHAR 276
-#define UPDATE 277
-#define INTO 278
-#define AND 279
-#define OR 280
-#define NOT 281
-#define EQ 282
-#define NE 283
-#define LT 284
-#define LE 285
-#define GT 286
-#define GE 287
-#define SELECT 288
-#define FROM 289
-#define WHERE 290
+#define JOIN 266
+#define ON 267
+#define AS 268
+#define DATABASE 269
+#define TABLE 270
+#define INDEX 271
+#define HELP 272
+#define VALUES 273
+#define INSERT 274
+#define DELETE 275
+#define PRIMARY 276
+#define T_INT 277
+#define T_FLOAT 278
+#define T_VARCHAR 279
+#define UPDATE 280
+#define INTO 281
+#define AND 282
+#define OR 283
+#define NOT 284
+#define EQ 285
+#define NE 286
+#define LT 287
+#define LE 288
+#define GT 289
+#define GE 290
+#define SELECT 291
+#define FROM 292
+#define WHERE 293
 
 
 
@@ -123,7 +129,7 @@ CondOp opval;
 Node* n;
 }
 /* Line 1529 of yacc.c.  */
-#line 127 "y.tab.h"
+#line 133 "y.tab.h"
 	YYSTYPE;
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
 # define YYSTYPE_IS_DECLARED 1

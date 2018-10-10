@@ -34,6 +34,9 @@ TokenItem token_map[]={
     {"database",DATABASE},
     {"into",INTO},
     {"set",SET},
+    {"join",JOIN},
+    {"on",ON},
+    {"as",AS},
     {"primary",PRIMARY}
 }; 
 
