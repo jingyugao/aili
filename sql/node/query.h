@@ -3,7 +3,16 @@
 
 #include "node.h"
 
+enum CmdKind{
+    CmdInsert,
+    CmdUpdate,
+    CmdSelect,
+    CmdDelete,
+};
+
 struct Query :public Node{
+    
+    
     vector<TableNode*> tables;
 
     vector<int> from;
