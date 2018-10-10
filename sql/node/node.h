@@ -25,6 +25,12 @@ enum NodeKind
     // NodeDropTable,
     // NodeCrateDb,
     // NodeDropDb
+
+
+
+
+    NodeQuery,
+    
 };
 
 struct Node
