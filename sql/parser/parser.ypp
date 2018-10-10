@@ -240,7 +240,8 @@ base_table:              WORD        {
                                         $$=n;
                                         }          
                     ;
-join_table:              base_table JOIN base_table ON cond_list {fprintf(stderr,"table:%s-%s,\n",((TableNode*)$1)->name.c_str(),((TableNode*)$3)->name.c_str());   JoinNode *n=new JoinNode();n->left=$1;n->right=$3;n->cond=$5; $$=n;        }
+                    //暂时不支持多个表join
+join_table:         base_table JOIN base_table ON cond_list {fprintf(stderr,"table:%s-%s,\n",((TableNode*)$1)->name.c_str(),((TableNode*)$3)->name.c_str());   JoinNode *n=new JoinNode();n->left=$1;n->right=$3;n->cond=$5; $$=n;        }
                     ;
 
 

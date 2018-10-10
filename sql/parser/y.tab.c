@@ -515,8 +515,8 @@ static const yytype_uint8 yyrline[] =
      145,   150,   154,   157,   160,   161,   164,   165,   168,   173,
      174,   175,   176,   177,   181,   185,   186,   190,   191,   195,
      196,   201,   202,   203,   209,   210,   211,   214,   215,   219,
-     222,   228,   229,   232,   233,   236,   243,   248,   249,   250,
-     251,   252,   253
+     222,   228,   229,   232,   233,   236,   244,   249,   250,   251,
+     252,   253,   254
 };
 #endif
 
@@ -1708,37 +1708,37 @@ yyreduce:
     break;
 
   case 56:
-#line 243 "parser.ypp"
+#line 244 "parser.ypp"
     {fprintf(stderr,"table:%s-%s,\n",((TableNode*)(yyvsp[(1) - (5)].n))->name.c_str(),((TableNode*)(yyvsp[(3) - (5)].n))->name.c_str());   JoinNode *n=new JoinNode();n->left=(yyvsp[(1) - (5)].n);n->right=(yyvsp[(3) - (5)].n);n->cond=(yyvsp[(5) - (5)].n); (yyval.n)=n;        }
     break;
 
   case 57:
-#line 248 "parser.ypp"
+#line 249 "parser.ypp"
     {(yyval.opval)=OpEq;}
     break;
 
   case 58:
-#line 249 "parser.ypp"
+#line 250 "parser.ypp"
     {(yyval.opval)=OpLt;}
     break;
 
   case 59:
-#line 250 "parser.ypp"
+#line 251 "parser.ypp"
     {(yyval.opval)=OpGt;}
     break;
 
   case 60:
-#line 251 "parser.ypp"
+#line 252 "parser.ypp"
     {(yyval.opval)=OpLe;}
     break;
 
   case 61:
-#line 252 "parser.ypp"
+#line 253 "parser.ypp"
     {(yyval.opval)=OpGe;}
     break;
 
   case 62:
-#line 253 "parser.ypp"
+#line 254 "parser.ypp"
     {(yyval.opval)=OpNe;}
     break;
 
@@ -1958,7 +1958,7 @@ yyreturn:
 }
 
 
-#line 256 "parser.ypp"
+#line 257 "parser.ypp"
 
 
 
