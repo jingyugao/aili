@@ -1694,22 +1694,22 @@ yyreduce:
 
   case 52:
 #line 231 "parser.ypp"
-    {TableNode * n=new TableNode();n->join=(yyvsp[(1) - (1)].n);(yyval.n)=n;}
+    {fprintf(stderr,"table2,\n");   TableNode * n=new TableNode();n->join=(yyvsp[(1) - (1)].n);(yyval.n)=n;}
     break;
 
   case 54:
 #line 235 "parser.ypp"
     {
                                         fprintf(stderr,"table:%s,\n",(yyvsp[(1) - (1)].sval));
-                                        TableNode*table=new TableNode();
-                                        table->name=(yyvsp[(1) - (1)].sval);
-                                        (yyval.n)=table;
+                                        TableNode*n=new TableNode();
+                                        n->name=(yyvsp[(1) - (1)].sval);
+                                        (yyval.n)=n;
                                         }
     break;
 
   case 55:
 #line 242 "parser.ypp"
-    {    JoinNode *n=new JoinNode();n->left=(yyvsp[(1) - (5)].n);n->right=(yyvsp[(3) - (5)].n);n->cond=(yyvsp[(5) - (5)].n); (yyval.n)=n;        }
+    {fprintf(stderr,"table:%s-%s,\n",((TableNode*)(yyvsp[(1) - (5)].n))->name.c_str(),((TableNode*)(yyvsp[(3) - (5)].n))->name.c_str());   JoinNode *n=new JoinNode();n->left=(yyvsp[(1) - (5)].n);n->right=(yyvsp[(3) - (5)].n);n->cond=(yyvsp[(5) - (5)].n); (yyval.n)=n;        }
     break;
 
   case 56:
