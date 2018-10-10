@@ -91,13 +91,13 @@ void tree_test(){
 int main(){
     setbuf(stdout,NULL);
     const char*sql_create="create table student (ID int,name varchar(10))";
-    const char*sql_select="select ID,name from student where student.ID = 10 and student.name=11 and student.name=2.5";
+    const char*sql_select="select student.ID,name,class.ID from student join class on student.ClassId=class.Id where student.ID = 10 and student.name=11 and student.name=2.5";
     const char*sql_insert1="insert into student values(10001,\"gaojingyu\")";
     const char*sql_insert2="insert into student (ID,name) values(10001,\"gaojingyu\")";
     const char*sql_update="update student set name=\"xiaoming\" where ID=10002"; 
-    const char*sql_delete="delete from student where name=\"xiaomin\"";
+    const char*sql_delete="delete from student where name=\"xiaoming\"";
     //tree_test();
-    sql_parser(sql_select);
+    raw_parser(sql_select);
     printf("finished\n");
     return 0;
 }

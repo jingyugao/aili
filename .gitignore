@@ -8,3 +8,4 @@ run.sh
 .DS_Store
 .vscode
 *.dSYM
+sql/parser/a.out

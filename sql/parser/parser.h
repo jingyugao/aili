@@ -8,5 +8,5 @@ int yylex(void);
 int yyparse(void);
 }
 
-Node* sql_parser(const char* sql_str);
+Node* raw_parser(const char* sql_str);
 #endif // SQL_PARSER_PARSER_H

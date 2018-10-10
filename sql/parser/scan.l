@@ -111,7 +111,7 @@ s_num       [+\-]?{num}
 
 %%
 
-Node* sql_parser(const char* sql_str){
+Node* raw_parser(const char* sql_str){
     // stderr=fopen("err.log","w");
     // if(stderr==NULL){
     //     printf("cant open err.log\n");
