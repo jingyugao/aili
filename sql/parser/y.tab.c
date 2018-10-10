@@ -422,7 +422,7 @@ union yyalloc
 /* YYNNTS -- Number of nonterminals.  */
 #define YYNNTS  31
 /* YYNRULES -- Number of rules.  */
-#define YYNRULES  61
+#define YYNRULES  62
 /* YYNRULES -- Number of states.  */
 #define YYNSTATES  120
 
@@ -478,8 +478,8 @@ static const yytype_uint8 yyprhs[] =
       67,    69,    75,    81,    86,    89,    90,    94,    96,   100,
      104,   108,   111,   115,   117,   121,   123,   125,   129,   131,
      135,   137,   140,   143,   149,   151,   153,   155,   159,   161,
-     165,   167,   171,   173,   175,   177,   183,   185,   187,   189,
-     191,   193
+     165,   167,   171,   173,   175,   177,   179,   185,   187,   189,
+     191,   193,   195
 };
 
 /* YYRHS -- A `-1'-separated list of the rules' RHS.  */
@@ -502,9 +502,9 @@ static const yytype_int8 yyrhs[] =
        3,    23,    -1,     3,    24,    39,     5,    40,    -1,     5,
       -1,     6,    -1,     4,    -1,    69,    41,    67,    -1,    69,
       -1,    71,    42,     3,    -1,     3,    -1,    70,    13,     3,
-      -1,    72,    -1,    71,    -1,     3,    -1,    71,    11,    71,
-      12,    60,    -1,    30,    -1,    32,    -1,    34,    -1,    33,
-      -1,    35,    -1,    31,    -1
+      -1,    70,    -1,    72,    -1,    71,    -1,     3,    -1,    71,
+      11,    71,    12,    60,    -1,    30,    -1,    32,    -1,    34,
+      -1,    33,    -1,    35,    -1,    31,    -1
 };
 
 /* YYRLINE[YYN] -- source line where rule number YYN was defined.  */
@@ -515,8 +515,8 @@ static const yytype_uint8 yyrline[] =
      145,   150,   154,   157,   160,   161,   164,   165,   168,   173,
      174,   175,   176,   177,   181,   185,   186,   190,   191,   195,
      196,   201,   202,   203,   209,   210,   211,   214,   215,   219,
-     222,   228,   231,   232,   235,   242,   247,   248,   249,   250,
-     251,   252
+     222,   228,   229,   232,   233,   236,   243,   248,   249,   250,
+     251,   252,   253
 };
 #endif
 
@@ -560,8 +560,8 @@ static const yytype_uint8 yyr1[] =
       53,    54,    55,    56,    57,    57,    58,    58,    59,    60,
       60,    60,    60,    60,    61,    62,    62,    63,    63,    64,
       64,    65,    65,    65,    66,    66,    66,    67,    67,    68,
-      68,    69,    70,    70,    71,    72,    73,    73,    73,    73,
-      73,    73
+      68,    69,    69,    70,    70,    71,    72,    73,    73,    73,
+      73,    73,    73
 };
 
 /* YYR2[YYN] -- Number of symbols composing right hand side of rule YYN.  */
@@ -572,8 +572,8 @@ static const yytype_uint8 yyr2[] =
        1,     5,     5,     4,     2,     0,     3,     1,     3,     3,
        3,     2,     3,     1,     3,     1,     1,     3,     1,     3,
        1,     2,     2,     5,     1,     1,     1,     3,     1,     3,
-       1,     3,     1,     1,     1,     5,     1,     1,     1,     1,
-       1,     1
+       1,     3,     1,     1,     1,     1,     5,     1,     1,     1,
+       1,     1,     1
 };
 
 /* YYDEFACT[STATE-NAME] -- Default rule to reduce with in state
@@ -583,15 +583,15 @@ static const yytype_uint8 yydefact[] =
 {
        0,     0,     0,     0,     0,     0,     0,     0,     2,     3,
        4,     5,     6,     7,     8,     9,    10,    11,    12,     0,
-       0,     0,     0,     0,     0,    54,     0,     0,    53,    52,
+       0,     0,     0,     0,     0,    55,     0,    52,    54,    53,
       50,     0,    38,     0,     1,    15,     0,    16,    14,     0,
       25,     0,     0,     0,     0,     0,     0,     0,     0,     0,
        0,    23,    25,    27,     0,    51,     0,    25,    48,    37,
       49,     0,     0,    40,     0,     0,    46,    44,    45,     0,
        0,    24,    33,     0,    36,    35,    22,     0,     0,     0,
       21,     0,    41,    42,     0,    13,     0,     0,    20,     0,
-      31,     0,     0,     0,    56,    61,    57,    59,    58,    60,
-       0,    26,    28,    55,    47,     0,    39,    17,     0,     0,
+      31,     0,     0,     0,    57,    62,    58,    60,    59,    61,
+       0,    26,    28,    56,    47,     0,    39,    17,     0,     0,
       32,    29,    30,    34,     0,    19,     0,    43,     0,    18
 };
 
@@ -636,7 +636,7 @@ static const yytype_int8 yypgoto[] =
    positive, shift that token.  If negative, reduce the rule which
    number is the opposite.  If zero, do what YYDEFACT says.
    If YYTABLE_NINF, syntax error.  */
-#define YYTABLE_NINF -55
+#define YYTABLE_NINF -56
 static const yytype_int8 yytable[] =
 {
       28,    48,    32,    90,    91,    23,    88,    30,    66,    67,
@@ -647,7 +647,7 @@ static const yytype_int8 yytable[] =
       88,     6,    92,    93,    30,    66,    67,    68,    88,    94,
       95,    96,    97,    98,    99,   110,    66,    67,    68,    19,
       20,    21,    22,    54,    92,    93,    28,    35,    37,    41,
-      42,    43,   -54,    44,    45,    55,    46,    47,    50,    60,
+      42,    43,   -55,    44,    45,    55,    46,    47,    50,    60,
       61,    64,    79,    78,    77,    81,    85,   109,   105,    86,
       89,   107,   114,   101,   116,   108,   117,   113,   119,   106,
        0,   104
@@ -1692,13 +1692,13 @@ yyreduce:
     {(yyval.n)=(yyvsp[(1) - (3)].n);((TableNode*)(yyval.n))->alias=(yyvsp[(3) - (3)].sval);  }
     break;
 
-  case 52:
-#line 231 "parser.ypp"
+  case 53:
+#line 232 "parser.ypp"
     {fprintf(stderr,"table2,\n");   TableNode * n=new TableNode();n->join=(yyvsp[(1) - (1)].n);(yyval.n)=n;}
     break;
 
-  case 54:
-#line 235 "parser.ypp"
+  case 55:
+#line 236 "parser.ypp"
     {
                                         fprintf(stderr,"table:%s,\n",(yyvsp[(1) - (1)].sval));
                                         TableNode*n=new TableNode();
@@ -1707,38 +1707,38 @@ yyreduce:
                                         }
     break;
 
-  case 55:
-#line 242 "parser.ypp"
-    {fprintf(stderr,"table:%s-%s,\n",((TableNode*)(yyvsp[(1) - (5)].n))->name.c_str(),((TableNode*)(yyvsp[(3) - (5)].n))->name.c_str());   JoinNode *n=new JoinNode();n->left=(yyvsp[(1) - (5)].n);n->right=(yyvsp[(3) - (5)].n);n->cond=(yyvsp[(5) - (5)].n); (yyval.n)=n;        }
-    break;
-
   case 56:
-#line 247 "parser.ypp"
-    {(yyval.opval)=OpEq;}
+#line 243 "parser.ypp"
+    {fprintf(stderr,"table:%s-%s,\n",((TableNode*)(yyvsp[(1) - (5)].n))->name.c_str(),((TableNode*)(yyvsp[(3) - (5)].n))->name.c_str());   JoinNode *n=new JoinNode();n->left=(yyvsp[(1) - (5)].n);n->right=(yyvsp[(3) - (5)].n);n->cond=(yyvsp[(5) - (5)].n); (yyval.n)=n;        }
     break;
 
   case 57:
 #line 248 "parser.ypp"
-    {(yyval.opval)=OpLt;}
+    {(yyval.opval)=OpEq;}
     break;
 
   case 58:
 #line 249 "parser.ypp"
-    {(yyval.opval)=OpGt;}
+    {(yyval.opval)=OpLt;}
     break;
 
   case 59:
 #line 250 "parser.ypp"
-    {(yyval.opval)=OpLe;}
+    {(yyval.opval)=OpGt;}
     break;
 
   case 60:
 #line 251 "parser.ypp"
-    {(yyval.opval)=OpGe;}
+    {(yyval.opval)=OpLe;}
     break;
 
   case 61:
 #line 252 "parser.ypp"
+    {(yyval.opval)=OpGe;}
+    break;
+
+  case 62:
+#line 253 "parser.ypp"
     {(yyval.opval)=OpNe;}
     break;
 
@@ -1958,7 +1958,7 @@ yyreturn:
 }
 
 
-#line 255 "parser.ypp"
+#line 256 "parser.ypp"
 
 
 

@@ -226,6 +226,7 @@ column:                 base_table '.' WORD     {fprintf(stderr,"rel.col:%s.%s\n
 
 
 table:   table2 AS  WORD {$$=$1;((TableNode*)$$)->alias=$3;  }
+        | table2
         ;
 
 table2:               join_table    {fprintf(stderr,"table2,\n");   TableNode * n=new TableNode();n->join=$1;$$=n;}
