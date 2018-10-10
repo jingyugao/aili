@@ -95,7 +95,7 @@ struct FieldNode : public Node
     }
     string name;
     string tableName;
-    Node * table;
+    int table;
 };
 
 struct AttrNode : public Node

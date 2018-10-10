@@ -5,7 +5,11 @@
 
 Query * rewrite_select(Node *raw){
     Query*qry=new Query();
+    qry->cmdKind=CmdSelect;
+    
+    SelectNode*node=(SelectNode*)raw;
 
+    qry->cond=node->cond;
     
 
 

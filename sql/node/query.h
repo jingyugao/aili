@@ -12,11 +12,12 @@ enum CmdKind{
 
 struct Query :public Node{
     
-    
+    CmdKind cmdKind;
     vector<TableNode*> tables;
-
+    Node* cond;
     vector<int> from;
     vector<FieldNode*> target;
+
 };
 
 

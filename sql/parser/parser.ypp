@@ -77,6 +77,7 @@ Node* n;
             insert_statment
             insert_values
             select_statment
+            simple_select
             cond_list
             update_statment
             set_list
@@ -146,7 +147,10 @@ insert_values:
                     ;
 
 
-select_statment:
+select_statment:        simple_select
+                    ;
+
+simple_select:
                         SELECT column_list  FROM rel_list where_clause       {fprintf(stderr,"sel_statment1\n");SelectNode *n=new SelectNode();n->fields=$2;n->tables=$4;n->cond=$5;$$=n;}
                     ;
 
